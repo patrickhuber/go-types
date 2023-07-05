@@ -93,6 +93,17 @@ func TestResult(t *testing.T) {
 		}
 	})
 
+	t.Run("error", func(t *testing.T) {
+		res := result.New[int](0, fmt.Errorf("err"))
+		switch res.(type) {
+		case types.Ok[int]:
+			t.Fatalf("expected types.Error[int]")
+		case types.Error[int]:
+		default:
+			t.Fatalf("expected types.Error[int]")
+		}
+	})
+
 	t.Run("deconstruct", func(t *testing.T) {
 		expected1 := 123
 		expected2 := "test"
