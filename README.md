@@ -62,7 +62,11 @@ func MatchError[T any](val any) Result[T]{
 }
 
 func main(){
-    switch t := AcceptResult(PossibleError(1)).(type){
+    
+    res := PossibleError(1)
+    accept := AcceptResult(res)
+
+    switch t := accept.(type){
 
     case types.Ok[string]:
         fmt.Println(t.Ok())
@@ -87,7 +91,7 @@ func PossibleError(val int) (int, error){
     return val, nil
 }
 
-func AcceptResult(val int) (string,error){
+func AcceptResult(val int) (string, error){
     return strconv.Itoa(val), nil
 }
 
