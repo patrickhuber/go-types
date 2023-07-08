@@ -5,6 +5,7 @@ type Result[T any] interface {
 	Deconstruct() (T, error)
 	IsOk() bool
 	IsError() bool
+	Unwrap() T
 }
 
 type resultImpl[T any] struct {

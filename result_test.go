@@ -133,4 +133,17 @@ func TestResult(t *testing.T) {
 			t.Fatalf("expected IsErr to be true")
 		}
 	})
+
+	t.Run("unwrap", func(t *testing.T) {
+		test := func() (res types.Result[int]) {
+			defer result.Handle(&res)
+			err := result.Error[int](fmt.Errorf("fail"))
+			_ = err.Unwrap() // should fail
+			return err
+		}
+		switch test().(type) {
+		case types.Ok[int]:
+			t.Fatalf("expected types.Error[int]")
+		}
+	})
 }

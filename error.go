@@ -1,5 +1,7 @@
 package types
 
+import "fmt"
+
 type Error[T any] interface {
 	Result[T]
 	Error() error
@@ -25,6 +27,10 @@ func (e *err[T]) IsError() bool {
 
 func (e *err[T]) IsOk() bool {
 	return false
+}
+
+func (e *err[T]) Unwrap() T {
+	panic(fmt.Errorf("unable to match %T", e))
 }
 
 func NewError[T any](value error) Result[T] {

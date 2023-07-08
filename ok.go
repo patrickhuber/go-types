@@ -25,6 +25,10 @@ func (o *ok[T]) IsError() bool {
 	return false
 }
 
+func (o *ok[T]) Unwrap() T {
+	return o.ok
+}
+
 func NewOk[T any](value T) Result[T] {
 	return &ok[T]{
 		ok: value,
