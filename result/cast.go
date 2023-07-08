@@ -1,8 +1,6 @@
 package result
 
 import (
-	"fmt"
-
 	"github.com/patrickhuber/go-types"
 )
 
@@ -13,12 +11,12 @@ func Cast[TSource, TTarget any](source types.Result[TSource]) types.Result[TTarg
 		target, ok := value.(TTarget)
 		if !ok {
 			var t TTarget
-			return Error[TTarget](fmt.Errorf("results.cast : unable to match target type %T", t))
+			return Errorf[TTarget]("results.cast : unable to match target type %T", t)
 		}
 		return Ok(target)
 	case types.Error[TSource]:
 		return Error[TTarget](t.Error())
 	default:
-		return Error[TTarget](fmt.Errorf("results.cast : unable to match source type %T", source))
+		return Errorf[TTarget]("results.cast : unable to match source type %T", source)
 	}
 }

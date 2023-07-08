@@ -1,8 +1,6 @@
 package option
 
 import (
-	"fmt"
-
 	"github.com/patrickhuber/go-types"
 	"github.com/patrickhuber/go-types/result"
 )
@@ -20,12 +18,12 @@ func Cast[TSource, TTarget any](source types.Option[TSource]) types.Result[types
 		value := any(t.Value())
 		target, ok := value.(TTarget)
 		if !ok {
-			return result.Error[types.Option[TTarget]](fmt.Errorf("options.cast : unable to match type target type %T", value))
+			return result.Errorf[types.Option[TTarget]]("options.cast : unable to match type target type %T", value)
 		}
 		return result.Ok(Some(target))
 
 	default:
-		return result.Error[types.Option[TTarget]](
-			fmt.Errorf("options.cast : unable to match type source type %T", source))
+		return result.Errorf[types.Option[TTarget]](
+			"options.cast : unable to match type source type %T", source)
 	}
 }

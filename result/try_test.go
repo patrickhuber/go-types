@@ -17,7 +17,7 @@ func TestCanTryHandle(t *testing.T) {
 	})
 
 	t.Run("error", func(t *testing.T) {
-		switch Use(result.Error[int](fmt.Errorf("failed"))).(type) {
+		switch Use(result.Errorf[int]("failed")).(type) {
 		case types.Ok[int]:
 			t.Fatalf("expected types.Error")
 		}

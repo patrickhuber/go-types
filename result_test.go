@@ -125,7 +125,7 @@ func TestResult(t *testing.T) {
 	})
 
 	t.Run("is_error", func(t *testing.T) {
-		res := result.Error[int](fmt.Errorf("fail"))
+		res := result.Errorf[int]("fail")
 		if res.IsOk() {
 			t.Fatalf("expected IsOk to be false")
 		}
@@ -137,7 +137,7 @@ func TestResult(t *testing.T) {
 	t.Run("unwrap", func(t *testing.T) {
 		test := func() (res types.Result[int]) {
 			defer result.Handle(&res)
-			err := result.Error[int](fmt.Errorf("fail"))
+			err := result.Errorf[int]("fail")
 			_ = err.Unwrap() // should fail
 			return err
 		}
