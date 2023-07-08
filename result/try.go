@@ -22,9 +22,3 @@ func Try[T any](res types.Result[T], filters ...error) types.Result[T] {
 	}
 	panic(fmt.Errorf("unable to match %T", res))
 }
-
-func Handle[T any](res *types.Result[T]) {
-	if r := recover(); r != nil {
-		*res = Error[T](r.(error))
-	}
-}

@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/patrickhuber/go-types"
+	"github.com/patrickhuber/go-types/handle"
 	"github.com/patrickhuber/go-types/result"
 )
 
@@ -33,8 +34,8 @@ func TestCanTryHandle(t *testing.T) {
 }
 
 func Use[T any](in types.Result[T], filters ...error) (res types.Result[T]) {
-	defer result.Handle(&res)
+	defer handle.Error(&res)
 	t := result.Try(in, filters...)
-	fmt.Println(t)
+	fmt.Println(t.Unwrap())
 	return
 }

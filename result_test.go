@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/patrickhuber/go-types"
+	"github.com/patrickhuber/go-types/handle"
 	"github.com/patrickhuber/go-types/option"
 	"github.com/patrickhuber/go-types/result"
 )
@@ -136,7 +137,7 @@ func TestResult(t *testing.T) {
 
 	t.Run("unwrap", func(t *testing.T) {
 		test := func() (res types.Result[int]) {
-			defer result.Handle(&res)
+			defer handle.Error(&res)
 			err := result.Errorf[int]("fail")
 			_ = err.Unwrap() // should fail
 			return err
