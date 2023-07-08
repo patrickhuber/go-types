@@ -1,17 +1,24 @@
 package result
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/patrickhuber/go-types"
 )
 
-func Try[T any](res types.Result[T]) T {
+func Try[T any](res types.Result[T], filters ...error) types.Result[T] {
 	switch t := res.(type) {
 	case types.Error[T]:
-		panic(t.Error())
+		err := t.Error()
+		for _, filter := range filters {
+			if errors.Is(err, filter) {
+				return res
+			}
+		}
+		panic(err)
 	case types.Ok[T]:
-		return t.Ok()
+		return res
 	}
 	panic(fmt.Errorf("unable to match %T", res))
 }

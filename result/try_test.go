@@ -22,11 +22,19 @@ func TestCanTryHandle(t *testing.T) {
 			t.Fatalf("expected types.Error")
 		}
 	})
+
+	t.Run("filter", func(t *testing.T) {
+		myError := fmt.Errorf("MyError")
+		switch Use(result.Error[int](myError), myError).(type) {
+		case types.Ok[int]:
+			t.Fatalf("expected types.Error")
+		}
+	})
 }
 
-func Use[T any](in types.Result[T]) (res types.Result[T]) {
+func Use[T any](in types.Result[T], filters ...error) (res types.Result[T]) {
 	defer result.Handle(&res)
-	t := result.Try(in)
+	t := result.Try(in, filters...)
 	fmt.Println(t)
 	return
 }
