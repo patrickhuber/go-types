@@ -31,3 +31,25 @@ func Falsef(condition bool, format string, args ...any) {
 	}
 	panic(fmt.Errorf(format, args...))
 }
+
+func Nil(value any) {
+	Nilf(value, "value is not nil")
+}
+
+func NotNil(value any) {
+	NotNilf(value, "value is nil")
+}
+
+func NotNilf(value any, format string, args ...any) {
+	if value != nil {
+		return
+	}
+	panic(fmt.Errorf(format, args...))
+}
+
+func Nilf(value any, format string, args ...any) {
+	if value == nil {
+		return
+	}
+	panic(fmt.Errorf(format, args...))
+}
