@@ -6,26 +6,6 @@ import (
 	"github.com/patrickhuber/go-types/tuple"
 )
 
-func TestTuple1(t *testing.T) {
-
-	t.Run("deconstruct", func(t *testing.T) {
-		expected := 1
-		t1 := tuple.New1(expected)
-		v := t1.Deconstruct()
-		if v != expected {
-			t.Fatalf("expected %d found %d", expected, v)
-		}
-	})
-
-	t.Run("value", func(t *testing.T) {
-		expected := 1
-		tup := tuple.New1(expected)
-		if tup.Value1() != expected {
-			t.Fatalf("expected value to equal %d", expected)
-		}
-	})
-}
-
 func TestTuple2(t *testing.T) {
 	t.Run("deconstruct", func(t *testing.T) {
 		expect1 := 1

@@ -1,31 +1,5 @@
 package types
 
-type Tuple1[T1 any] interface {
-	tuple1(t1 T1)
-	Deconstruct() T1
-	Value1() T1
-}
-
-type tuple1[T1 any] struct {
-	t1 T1
-}
-
-func (*tuple1[T1]) tuple1(t1 T1) {}
-
-func (t *tuple1[T1]) Deconstruct() T1 {
-	return t.t1
-}
-
-func (t *tuple1[T1]) Value1() T1 {
-	return t.t1
-}
-
-func NewTuple1[T1 any](t1 T1) Tuple1[T1] {
-	return &tuple1[T1]{
-		t1: t1,
-	}
-}
-
 type Tuple2[T1, T2 any] interface {
 	tuple2(t1 T1, t2 T2)
 	Deconstruct() (T1, T2)
