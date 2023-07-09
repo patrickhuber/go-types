@@ -5,6 +5,7 @@ type Option[T any] interface {
 	Deconstruct() (T, bool)
 	IsSome() bool
 	IsNone() bool
+	Unwrap() T
 }
 
 type optionImpl[T any] struct {

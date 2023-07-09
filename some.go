@@ -19,6 +19,9 @@ func (s *someImpl[T]) Deconstruct() (T, bool) {
 
 func (s *someImpl[T]) IsSome() bool { return true }
 func (s *someImpl[T]) IsNone() bool { return false }
+func (s *someImpl[T]) Unwrap() T {
+	return s.value
+}
 
 func NewSome[T any](value T) Option[T] {
 	return &someImpl[T]{
