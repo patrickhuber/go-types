@@ -21,7 +21,7 @@ func (o *ok[T]) IsOk() bool {
 	return true
 }
 
-func (o *ok[T]) IsError() bool {
+func (o *ok[T]) IsError(err ...error) bool {
 	return false
 }
 

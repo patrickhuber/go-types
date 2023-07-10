@@ -1,113 +1,222 @@
 # Go Types
 
-Provides Option[T], Result[T] types for go and supporting methods
+Provides Option[T any], Result[T any] types for go and supporting methods
 
-## Option[T]
+## Tuple
 
-Option[T] represents Something or Nothing. 
+Tuples represent 2 or more values as a single type. They are very helpful when creating generic go code that utilizes function signatures.
 
-### Some[T]
+For full examples of the tuple types see [the tuple tests](tuple_test.go)
 
-Some[T] is an Option[T] with a value
+### Tuple[T1, T2 any]
 
-### None[T]
+Represents 2 values in a single type.
 
-None[T] is an Option[T] with no value
+The easiest way to create a Tuple[T1, T2 any] is to use the `tuple` package. 
 
-## Result[T]
+```golang
+package main
 
-Result[T] represents a value Ok or an Error
+import(
+    "fmt"
+    "github.com/patrickhuber/go-types/tuple"
+)
+func main(){
+    t := tuple.New2(1, "hello world")
+    i, s := t.Deconstruct()
+    fmt.Printf("%d %s", i, s)
+}
+```
 
-## Ok[T]
+[Go Playground](https://go.dev/play/p/-a2MXvUdCSP)
 
-Ok[T] is a successful Result[T] with a value
+### Tuple3[T1, T2, T3 any]
 
-## Error[T]
+Represents 3 values in a single type.
 
-Error[T] is a failed Result[T] with an error
+The easiest way to create a Tuple3[T1, T2, T3 any] is to use the `tuple` package
 
-## Usage
+```golang
+package main
 
-Result[T] can be used to avoid if err != nil repetition in code by passing in Result[T] objects instead of values
+import(
+    "fmt"
+    "github.com/patrickhuber/go-types/tuple"
+)
+func main(){
+    t := tuple.New3(1, "hello world", 1.234)
+    i, s, f := t.Deconstruct()
+    fmt.Printf("%d %s %f", i, s, f)
+}
+```
 
-```go
+[Go Playground](https://go.dev/play/p/0MdilHXDZaF)
+
+### Tuple4[T1, T2, T3, T4 any]
+
+Represents 4 values in a single type.
+
+The easiest way to create a Tuple4[T1, T2, T3, T4 any] is to use the `tuple` package
+
+```golang
 package main
 
 import (
+	"fmt"
+
+	"github.com/patrickhuber/go-types/tuple"
+)
+
+func main() {
+	t := tuple.New4(1, "hello world", 1.234, true)
+	i, s, f, b := t.Deconstruct()
+	fmt.Printf("%d %s %f %t", i, s, f, b)
+}
+```
+
+[Go Playground](https://go.dev/play/p/E3CPO3DWm5O)
+
+## Option[T any]
+
+Option[T any] represents Something or Nothing. 
+
+The core types for the option type are in the `types` pacakge. Helper functions for creating options are located in the `option` package.
+
+For full examples of the option types see [the option tests](option_test.go)
+
+### Some[T any]
+
+Some[T any] is an Option[T any] with a value. 
+
+The easiest way to create a Some type is to use the `option` package
+
+```golang
+package main
+
+import (
+    "github.com/patrickhuber/go-types/option"
     "github.com/patrickhuber/go-types"
-    "github.com/patrickhuber/go-types/result"    
-    "strconv"
+    "fmt"
 )
-
-func PossibleError(val int) Result[int]{
-    return result.Ok(val)
-}
-
-func AcceptResult(res Result[int]) Result[string]{
-    switch t := res.(type){
-    
-    case types.Ok[int]:
-        return result.Ok(strconv.Itoa(t.Ok()))
-
-    case types.Error[int]:
-        return result.Error[string](v.Error())        
-    }
-
-    // no exhaustive matching so match default case and throw error
-    return MatchError[string](res)
-}
-
-func MatchError[T any](val any) Result[T]{
-    return result.Error(fmt.Errorf("unable to match type %T", val))
-}
-
 func main(){
-    
-    res := PossibleError(1)
-    accept := AcceptResult(res)
-
-    switch t := accept.(type){
-
-    case types.Ok[string]:
-        fmt.Println(t.Ok())
-
-    case types.Error[string]:
-        fmt.Println(t.Error())
-        panic(1)
-    }
+    // creates a types.Some[int] using type inference
+    op := option.Some(1) 
+    // because Some and None are types, a types switch can be used
+    switch o := op.(type){
+    case types.Some[int]:
+        fmt.Println("some", o.Value())
+    case types.None[int]:
+        fmt.Println("none")
+    }    
 }
 ```
 
-An idiomatic go program would look like the following
+[Go Playground](https://go.dev/play/p/a5kpg-AMw9a)
 
-```go
+### None[T any]
+
+None[T any] is an Option[T any] with no value
+
+The easiest way to create a None type is to use the `option` package
+
+```golang
 package main
 
 import (
-    "strconv"
+    "github.com/patrickhuber/go-types/option"
+    "github.com/patrickhuber/go-types"
+    "fmt"
 )
-
-func PossibleError(val int) (int, error){
-    return val, nil
-}
-
-func AcceptResult(val int) (string, error){
-    return strconv.Itoa(val), nil
-}
-
 func main(){
-    res, err := PossibleError(1)
-    if err != nil{
-        fmt.Println(err)
-        panic(1)
-    }
-
-    accept, err := AcceptResult(res)
-    if err != nil{
-        fmt.Println(err)
-        panic(1)
-    }
-
-    fmt.Println(accept)
+    // creates a types.None[int]
+    op := option.None[int]() 
+    // because Some and None are types, a types switch can be used
+    switch o := op.(type){
+    case types.Some[int]:
+        fmt.Println("some", o.Value())
+    case types.None[int]:
+        fmt.Println("none")
+    }    
 }
 ```
+
+[Go Playground](https://go.dev/play/p/MKYSi4NyGhi)
+
+## Result[T any]
+
+Result[T any] represents a value Ok or an Error
+
+The core types for result type are in the `types` package. Helper functions for creating results are located in the `result` package.
+
+For full examples of the result types see [the result tests](result_test.go)
+
+### Ok[T any]
+
+Ok[T any] is a successful Result[T any] with a value
+
+The easiest way to create a Ok type is to use the `result` package
+
+```golang
+package main
+
+import (
+    "github.com/patrickhuber/go-types/result"
+    "github.com/patrickhuber/go-types"
+    "fmt"
+)
+func main(){
+    // creates a Ok[int] result using type inference
+    res := result.Ok(1) 
+    // because Ok and Error are types, a types switch can be used
+    switch r := res.(type){
+    case types.Ok[int]:
+        fmt.Println("value", r.Ok())
+    case types.Error[int]:
+        fmt.Println(r.Error())
+    }    
+}
+```
+
+[Go Playground](https://go.dev/play/p/SybyvlOyH80)
+
+### Error[T any]
+
+Error[T any] is a failed Result[T any] with an error
+
+The easiest way to create an Error type is to use the `result` package
+
+```golang
+package main
+
+import (
+    "github.com/patrickhuber/go-types/result"
+    "github.com/patrickhuber/go-types"
+    "fmt"
+)
+func main(){
+    // creates a Error[int] result
+    res := result.Errorf[int]("error")
+
+    // because Ok and Error are types, a types switch can be used
+    switch r := res.(type){
+    case types.Ok[int]:
+        fmt.Println("value", r.Ok())
+    case types.Error[int]:
+        fmt.Println(r.Error())
+    }    
+}
+```
+
+[Go Playground](https://go.dev/play/p/13IyH_tP7qt)
+
+## Error Handling 
+
+Result[T any] can be used to avoid if err != nil repetition in code by passing in Result[T any] objects instead of values
+
+As a baseline look at the [idiomatic go example](examples/idiomatic_test.go)
+
+To utilize the library without modifying dependencies you can use `defer handle.Error(&res)` along with the `assert` package to remove `if err != nil { return err}` checks. The [assert example](examples/assert_test.go) shows how.
+
+To use results in return types by wrapping existing functions that return errors see the [wrap example](examples/wrap_test.go)
+
+The `result.Unwrap()` syntax is very similar to rust's `?` syntax and dramatically reduces the verticle size of the code while still handing errors.

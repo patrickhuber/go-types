@@ -1,6 +1,9 @@
 package types
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Error[T any] interface {
 	Result[T]
@@ -21,7 +24,12 @@ func (e *err[T]) Deconstruct() (T, error) {
 	return t, e.err
 }
 
-func (e *err[T]) IsError() bool {
+func (e *err[T]) IsError(err ...error) bool {
+	for _, target := range err {
+		if errors.Is(e.err, target) {
+			return false
+		}
+	}
 	return true
 }
 
