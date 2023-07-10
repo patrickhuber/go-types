@@ -213,9 +213,15 @@ func main(){
 
 Result[T any] can be used to avoid if err != nil repetition in code by passing in Result[T any] objects instead of values
 
+### Baseline
+
 As a baseline look at the [idiomatic go example](examples/idiomatic_test.go)
 
+### Assert
+
 To utilize the library without modifying dependencies you can use `defer handle.Error(&res)` along with the `assert` package to remove `if err != nil { return err}` checks. The [assert example](examples/assert_test.go) shows how.
+
+### Wrapping
 
 To use results in return types by wrapping existing functions that return errors see the [wrap example](examples/wrap_test.go)
 
