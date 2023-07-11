@@ -12,7 +12,7 @@ func TestIdiomatic(t *testing.T) {
 	tmpdir := t.TempDir()
 	err := idiomatic(tmpdir)
 	if err != nil {
-		panic(err)
+		t.Fatal(err)
 	}
 }
 
