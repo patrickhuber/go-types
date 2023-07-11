@@ -1,6 +1,7 @@
 package types
 
 type Some[T any] interface {
+	Option[T]
 	Value() T
 }
 
