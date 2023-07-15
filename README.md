@@ -1,6 +1,6 @@
 # Go Types
 
-Provides Option[T any], Result[T any] types for go and supporting methods
+Provides Option, Result and Tuple generic types for go and supporting methods
 
 ## Tuple
 

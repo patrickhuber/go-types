@@ -1,7 +1,10 @@
 package types
 
+// Some represents an Option[T] that has a value
 type Some[T any] interface {
+	// must implement Option[T]
 	Option[T]
+	// Value returns the underlying value
 	Value() T
 }
 
