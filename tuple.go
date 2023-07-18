@@ -12,6 +12,7 @@ type tuple2[T1, T2 any] struct {
 	t2 T2
 }
 
+//lint:ignore U1000 method is used to implement Tuple2[T1,T2]
 func (*tuple2[T1, T2]) tuple2(t1 T1, t2 T2) {}
 
 func (t *tuple2[T1, T2]) Deconstruct() (T1, T2) {
@@ -47,6 +48,7 @@ type tuple3[T1, T2, T3 any] struct {
 	t3 T3
 }
 
+//lint:ignore U1000 method is used to implement Tuple3[T1,T2,T3]
 func (*tuple3[T1, T2, T3]) tuple3(t1 T1, t2 T2, t3 T3) {}
 
 func (t *tuple3[T1, T2, T3]) Deconstruct() (T1, T2, T3) {
@@ -89,6 +91,7 @@ type tuple4[T1, T2, T3, T4 any] struct {
 	t4 T4
 }
 
+//lint:ignore U1000 method is used to implement Tuple4[T1,T2,T3,T4]
 func (*tuple4[T1, T2, T3, T4]) tuple4(t1 T1, t2 T2, t3 T3, t4 T4) {}
 
 func (t *tuple4[T1, T2, T3, T4]) Deconstruct() (T1, T2, T3, T4) {

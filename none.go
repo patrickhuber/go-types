@@ -8,9 +8,11 @@ type None[T any] interface {
 }
 
 type noneImpl[T any] struct {
+	//lint:ignore U1000 field is used to implement Option[T]
 	optionImpl[T]
 }
 
+//lint:ignore U1000 method is used to implement None[T]
 func (*noneImpl[T]) none(t T) {}
 
 func (*noneImpl[T]) Deconstruct() (T, bool) {

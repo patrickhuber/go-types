@@ -26,6 +26,7 @@ type Result[T any] interface {
 type resultImpl[T any] struct {
 }
 
+//lint:ignore U1000 method is used to implement Result[T]
 func (*resultImpl[T]) result(t T) {}
 
 // NewResult returns a Error if err is not nil and Ok if err is nil.

@@ -5,6 +5,7 @@ type Some[T any] interface {
 }
 
 type someImpl[T any] struct {
+	//lint:ignore U1000 field is used to implement Option[T]
 	optionImpl[T]
 	value T
 }

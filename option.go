@@ -11,4 +11,5 @@ type Option[T any] interface {
 type optionImpl[T any] struct {
 }
 
+//lint:ignore U1000 method is used to implement Option[T]
 func (*optionImpl[T]) option(t T) {}

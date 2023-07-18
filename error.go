@@ -12,6 +12,7 @@ type Error[T any] interface {
 
 type err[T any] struct {
 	err error
+	//lint:ignore U1000 field is used to implement Result[T]
 	resultImpl[T]
 }
 

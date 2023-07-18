@@ -6,6 +6,7 @@ type Ok[T any] interface {
 
 type ok[T any] struct {
 	ok T
+	//lint:ignore U1000 this is used to implement Result[T]
 	resultImpl[T]
 }
 
