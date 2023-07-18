@@ -26,12 +26,18 @@ func (e *err[T]) Deconstruct() (T, error) {
 }
 
 func (e *err[T]) IsError(err ...error) bool {
+	// no filters so match any error
+	if len(err) == 0 {
+		return true
+	}
+
+	// must match one of the filters
 	for _, target := range err {
 		if errors.Is(e.err, target) {
-			return false
+			return true
 		}
 	}
-	return true
+	return false
 }
 
 func (e *err[T]) IsOk() bool {

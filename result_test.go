@@ -3,6 +3,7 @@ package types_test
 import (
 	"errors"
 	"fmt"
+	"io"
 	"testing"
 
 	"github.com/patrickhuber/go-types"
@@ -60,6 +61,34 @@ func TestError(t *testing.T) {
 			t.Fatalf("unable to match %v", res)
 		}
 	})
+	t.Run("nested_match", func(t *testing.T) {
+		myerr := fmt.Errorf("%w", io.EOF)
+		switch res := result.Error[int](myerr).(type) {
+		case types.Error[int]:
+			if !res.IsError(io.EOF) {
+				t.Fatalf("expected error to be derived from io.EOF")
+			}
+		case types.Ok[int]:
+			t.Fatalf("expected types.Error[int] but found types.Ok[int]")
+		default:
+			t.Fatalf("unable to match %v", res)
+		}
+	})
+
+	t.Run("nested_mismatch", func(t *testing.T) {
+		myerr := fmt.Errorf("%w", io.EOF)
+		switch res := result.Error[int](myerr).(type) {
+		case types.Error[int]:
+			if res.IsError(io.ErrNoProgress) {
+				t.Fatalf("expected should not derive io.ErrNoProgress")
+			}
+		case types.Ok[int]:
+			t.Fatalf("expected types.Error[int] but found types.Ok[int]")
+		default:
+			t.Fatalf("unable to match %v", res)
+		}
+	})
+
 	t.Run("deconstruct", func(t *testing.T) {
 		myerr := fmt.Errorf("err")
 		result := result.Error[int](myerr)
