@@ -1,6 +1,7 @@
 package types
 
 type Ok[T any] interface {
+	Result[T]
 	Ok() T
 }
 

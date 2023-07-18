@@ -2,6 +2,7 @@ package types
 
 import "fmt"
 
+// None represents an Option[T] that does not have a value
 type None[T any] interface {
 	Option[T]
 	none(t T)
