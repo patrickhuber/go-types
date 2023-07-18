@@ -13,7 +13,9 @@ type Result[T any] interface {
 	IsOk() bool
 
 	// IsError returns false for Ok results, true for Error results.
-	// IsError accepts a list of errors and errors.Is() matches the internal error, returns true, false otherwise.
+	// IsError returns true for Error results where the err list is empty
+	// IsError returns false for Error results where the err list has at least one error that doesn't match errors.Is
+	// IsError returns true for Error results where the err list has at least one error that matches errors.Is
 	IsError(err ...error) bool
 
 	// Unwrap attempts to unwrap the result to its value.
