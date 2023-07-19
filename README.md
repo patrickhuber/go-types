@@ -211,7 +211,20 @@ func main(){
 
 ## Error Handling 
 
-Result[T any] can be used to avoid if err != nil repetition in code by passing in Result[T any] objects instead of values
+Result[T any] can be used to avoid if err != nil repetition in code by passing in Result[T any] objects instead of values.
+
+Result[T any] must be called with defer or panics will not be recovered.
+
+```golang
+func MyFunction() (res Result[any]){
+    defer handle.Error(&res)
+    assert.IsNotNil(nil)
+}
+```
+
+System panics will not be trapped by handle.Error because they will not wrap ErrRecoverable. Any function in this module that panics, will panic with ErrRecoverable. 
+
+Use the method `Throw` if you want to panic with a recoverable error as it performs the error wrapping of ErrRecoverable using fmt.Errorf.
 
 ### Baseline
 

@@ -24,12 +24,6 @@ type Result[T any] interface {
 	Unwrap() T
 }
 
-type resultImpl[T any] struct {
-}
-
-//lint:ignore U1000 method is used to implement Result[T]
-func (*resultImpl[T]) result(t T) {}
-
 // NewResult returns a Error if err is not nil and Ok if err is nil.
 // Most consumers of the module will use the `result` package `Ok` and `Error` functions instead.
 func NewResult[T any](ok T, err error) Result[T] {
