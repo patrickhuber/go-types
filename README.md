@@ -8,11 +8,11 @@ Tuples represent 2 or more values as a single type. They are very helpful when c
 
 For full examples of the tuple types see [the tuple tests](tuple_test.go)
 
-### Tuple[T1, T2 any]
+### Tuple2[T1, T2 any]
 
 Represents 2 values in a single type.
 
-The easiest way to create a Tuple[T1, T2 any] is to use the `tuple` package. 
+The easiest way to create a Tuple2[T1, T2 any] is to use the `tuple` package. 
 
 ```golang
 package main
