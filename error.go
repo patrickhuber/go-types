@@ -2,7 +2,6 @@ package types
 
 import (
 	"errors"
-	"fmt"
 )
 
 // An Error[T] is an Result[T] representing an error
@@ -54,7 +53,7 @@ func (e *err[T]) IsOk() bool {
 
 // Unwrap() implements Result[T].Unwrap()
 func (e *err[T]) Unwrap() T {
-	Throw(fmt.Errorf("types.%T unwraped. %w", e, e.err))
+	Throw(e.err)
 	var zero T
 	return zero
 }
