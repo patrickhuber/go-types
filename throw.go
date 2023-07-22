@@ -12,6 +12,8 @@ var ErrRecoverable = errors.New("")
 
 // Throw wraps the given error with ErrRecoverable and then panics
 func Throw(err error) {
-	err = fmt.Errorf("%w %w", err, ErrRecoverable)
+	if !errors.Is(err, ErrRecoverable) {
+		err = fmt.Errorf("%w %w", err, ErrRecoverable)
+	}
 	panic(err)
 }
