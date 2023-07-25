@@ -95,7 +95,7 @@ func New{{$value}}[{{typeDef $value}} any]({{parameters $value}}) types.Tuple{{$
 {{end}}
 `
 
-var tupelFuncsTestTemplate = `package tuple_test
+var tupleFuncsTestTemplate = `package tuple_test
 
 import (
 	"github.com/patrickhuber/go-types/tuple"
@@ -117,6 +117,70 @@ func TestNew{{$value}}(t *testing.T) {
 }
 {{end}}
 `
+
+var resultFuncsTemplate = `package result
+
+import (
+	"github.com/patrickhuber/go-types"
+)
+
+func New[T any](ok T, err error) types.Result[T] {
+	return types.NewResult(ok, err)
+}
+{{range $index, $value := .}}
+func New{{$value}}[{{typeDef $value}} any]({{parameters $value}}, err error) types.Result[types.Tuple{{$value}}[{{typeDef $value}}]] {
+	return types.NewResult(
+		types.NewTuple{{$value}}({{values $value}}), 
+		err,
+	)
+}
+{{end}}`
+
+var resultFuncsTestTemplate = `package result_test
+
+import (
+	"testing"
+
+	"github.com/patrickhuber/go-types"
+	"github.com/patrickhuber/go-types/result"
+)
+
+func TestNew(t *testing.T) {
+	t.Run("new", func(t *testing.T) {
+		switch result.New(1, nil).(type) {
+		case types.Error[int]:
+			t.Fatalf("expected types.Ok[int]")
+		}
+	})
+	t.Run("func", func(t *testing.T) {
+		f := func() (int, error) {
+			return 1, nil
+		}
+		switch result.New(f()).(type) {
+		case types.Error[int]:
+			t.Fatalf("expected types.Ok[int]")
+		}
+	})
+}
+{{range $index, $value := .}}
+func TestNew{{$value}}(t *testing.T) {
+	t.Run("new", func(t *testing.T) {
+		switch result.New{{$value}}({{range $i, $v := loop 1 $value }}{{if $i}}, {{end}}{{$v}}{{end}}, nil).(type) {
+		case types.Error[types.Tuple{{$value}}[{{join ", " (repeat "int" $value)}}]]:
+			t.Fatalf("expected types.Ok[types.Tuple{{$value}}[{{join ", " (repeat "int" $value)}}]]")
+		}
+	})
+	t.Run("func", func(t *testing.T) {
+		f := func() ({{join ", " (repeat "int" $value)}}, error) {
+			return {{range $i, $v := loop 1 $value}}{{if $i}}, {{end}}{{$v}}{{end}}, nil
+		}
+		switch result.New{{$value}}(f()).(type) {
+		case types.Error[types.Tuple{{$value}}[{{join ", " (repeat "int" $value)}}]]:
+			t.Fatalf("expected types.Ok[Tuple{{$value}}[{{join ", " (repeat "int" $value)}}]]")
+		}
+	})
+}
+{{end}}`
 
 func main() {
 	funcs := template.FuncMap{
@@ -153,15 +217,43 @@ func main() {
 			}
 			return builder.String()
 		},
+		"values": func(value int) string {
+			count := 0
+			builder := &strings.Builder{}
+			for i := 1; i <= value; i++ {
+				if count > 0 {
+					builder.WriteString(", ")
+				}
+				t := fmt.Sprintf("t%d", i)
+				builder.WriteString(t)
+				count++
+			}
+			return builder.String()
+		},
+		"join": func(sep string, others []string) string {
+			return strings.Join(others, sep)
+		},
+		"repeat": func(s string, count int) []string {
+			var strList []string
+			for i := 0; i < count; i++ {
+				strList = append(strList, s)
+			}
+			return strList
+		},
 	}
-	err := Generate(funcs, tupleTemplate, "tuple.go")
-	handle(err)
-	err = Generate(funcs, tupleTestTemplate, "tuple_test.go")
-	handle(err)
-	err = Generate(funcs, tupleFuncsTemplate, "tuple/new.go")
-	handle(err)
-	err = Generate(funcs, tupelFuncsTestTemplate, "tuple/new_test.go")
-	handle(err)
+
+	m := map[string]string{
+		tupleTemplate:           "tuple.go",
+		tupleTestTemplate:       "tuple_test.go",
+		tupleFuncsTemplate:      "tuple/new.go",
+		tupleFuncsTestTemplate:  "tuple/new_test.go",
+		resultFuncsTemplate:     "result/new.go",
+		resultFuncsTestTemplate: "result/new_test.go",
+	}
+	for tmpl, outFile := range m {
+		err := Generate(funcs, tmpl, outFile)
+		handle(err)
+	}
 }
 
 func handle(err error) {
