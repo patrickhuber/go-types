@@ -38,7 +38,7 @@ There are a total of 16 Tuple types in this library. They each have similar meth
 
 Option[T any] represents Something or Nothing. 
 
-The core types for the option type are in the `types` pacakge. Helper functions for creating options are located in the `option` package.
+The core types for the option type are in the `types` package. Helper functions for creating options are located in the `option` package.
 
 For full examples of the option types see [the option tests](option_test.go)
 
