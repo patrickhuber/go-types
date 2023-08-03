@@ -62,7 +62,7 @@ func main(){
     // because Some and None are types, a types switch can be used
     switch o := op.(type){
     case types.Some[int]:
-        fmt.Println("some", o.Value())
+        fmt.Println("some", o.Value)
     case types.None[int]:
         fmt.Println("none")
     }    
@@ -91,7 +91,7 @@ func main(){
     // because Some and None are types, a types switch can be used
     switch o := op.(type){
     case types.Some[int]:
-        fmt.Println("some", o.Value())
+        fmt.Println("some", o.Value)
     case types.None[int]:
         fmt.Println("none")
     }    
@@ -128,9 +128,9 @@ func main(){
     // because Ok and Error are types, a types switch can be used
     switch r := res.(type){
     case types.Ok[int]:
-        fmt.Println("value", r.Ok())
+        fmt.Println("value", r.Value)
     case types.Error[int]:
-        fmt.Println(r.Error())
+        fmt.Println(r.Value)
     }    
 }
 ```
@@ -158,9 +158,9 @@ func main(){
     // because Ok and Error are types, a types switch can be used
     switch r := res.(type){
     case types.Ok[int]:
-        fmt.Println("value", r.Ok())
+        fmt.Println("value", r.Value)
     case types.Error[int]:
-        fmt.Println(r.Error())
+        fmt.Println(r.Value)
     }    
 }
 ```
