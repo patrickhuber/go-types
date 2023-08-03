@@ -28,7 +28,7 @@ func main(){
 }
 ```
 
-[Go Playground](https://go.dev/play/p/-a2MXvUdCSP)
+[Go Playground](https://go.dev/play/p/FK_b8UvaiGL)
 
 ### TupleN[T1 .. TN]
 
@@ -69,7 +69,7 @@ func main(){
 }
 ```
 
-[Go Playground](https://go.dev/play/p/a5kpg-AMw9a)
+[Go Playground](https://go.dev/play/p/FK_b8UvaiGL)
 
 ### None[T any]
 
@@ -98,7 +98,7 @@ func main(){
 }
 ```
 
-[Go Playground](https://go.dev/play/p/MKYSi4NyGhi)
+[Go Playground](https://go.dev/play/p/SFAmmKi6wTi)
 
 ## Result[T any]
 
@@ -135,7 +135,7 @@ func main(){
 }
 ```
 
-[Go Playground](https://go.dev/play/p/SybyvlOyH80)
+[Go Playground](https://go.dev/play/p/cilRscVSBtG)
 
 ### Error[T any]
 
@@ -165,7 +165,7 @@ func main(){
 }
 ```
 
-[Go Playground](https://go.dev/play/p/13IyH_tP7qt)
+[Go Playground](https://go.dev/play/p/6Xq2BehmNJL)
 
 ## Error Handling 
 
