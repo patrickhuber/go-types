@@ -16,8 +16,8 @@ func TestOk(t *testing.T) {
 	t.Run("match", func(t *testing.T) {
 		switch res := result.Ok(123).(type) {
 		case types.Ok[int]:
-			if res.Ok() != 123 {
-				t.Fatalf("expected 123 but found %d", res.Ok())
+			if res.Value != 123 {
+				t.Fatalf("expected 123 but found %d", res.Value)
 			}
 		case types.Error[int]:
 			t.Fatalf("expected match types.Ok[int] but matched types.Error[int]")
@@ -52,8 +52,8 @@ func TestError(t *testing.T) {
 		myerror := fmt.Errorf("my error")
 		switch res := result.Error[int](myerror).(type) {
 		case types.Error[int]:
-			if !errors.Is(res.Error(), myerror) {
-				t.Fatalf("expected %v but found %v", myerror, res.Error())
+			if !errors.Is(res.Value, myerror) {
+				t.Fatalf("expected %v but found %v", myerror, res.Value)
 			}
 		case types.Ok[int]:
 			t.Fatalf("expected types.Error[int] but found types.Ok[int]")
@@ -107,9 +107,9 @@ func TestResult(t *testing.T) {
 		expected1 := 123
 		switch res := result.New(option.Some(expected1), nil).(type) {
 		case types.Ok[types.Option[int]]:
-			switch opt := res.Ok().(type) {
+			switch opt := res.Value.(type) {
 			case types.Some[int]:
-				found := opt.Value()
+				found := opt.Value
 				if found != expected1 {
 					t.Fatalf("expected %d found %d", expected1, found)
 				}
@@ -117,7 +117,7 @@ func TestResult(t *testing.T) {
 				t.Fatalf("expected types.Some[int] found types.None[int]")
 			}
 		case types.Error[types.Option[int]]:
-			t.Fatal(res.Error())
+			t.Fatal(res.Value)
 		default:
 			t.Fatalf("unable to match result")
 		}

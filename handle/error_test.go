@@ -57,7 +57,7 @@ func RunError[T any](t *testing.T, action func() types.Result[T]) {
 func RunOk[T any](t *testing.T, action func() types.Result[T]) {
 	switch res := action().(type) {
 	case types.Error[T]:
-		t.Fatal(res.Error())
+		t.Fatal(res.Value)
 	case types.Ok[T]:
 	}
 }

@@ -1,48 +1,35 @@
 package types
 
-// A Ok[T] is an Result[T] representing a success
-type Ok[T any] interface {
-	// Ok[T] is a Result[T]
-	Result[T]
-	// Returns the value in the Ok[T] instance
-	Ok() T
-}
-
-type ok[T any] struct {
-	ok T
+type Ok[T any] struct {
+	Value T
 }
 
 //lint:ignore U1000 method is used to implement Result[T]
-func (*ok[T]) result(t T) {}
-
-// Ok implements Ok[T].Ok
-func (o *ok[T]) Ok() T {
-	return o.ok
-}
+func (Ok[T]) result(t T) {}
 
 // Deconstruct implements Result[T].Deconstruct
-func (o *ok[T]) Deconstruct() (T, error) {
-	return o.ok, nil
+func (o Ok[T]) Deconstruct() (T, error) {
+	return o.Value, nil
 }
 
 // IsOk implements Result[T].IsOk
-func (o *ok[T]) IsOk() bool {
+func (o Ok[T]) IsOk() bool {
 	return true
 }
 
 // IsError implements Result[T].IsError
-func (o *ok[T]) IsError(err ...error) bool {
+func (o Ok[T]) IsError(err ...error) bool {
 	return false
 }
 
 // Unwrap implements Result[T].Unwrap
-func (o *ok[T]) Unwrap() T {
-	return o.ok
+func (o Ok[T]) Unwrap() T {
+	return o.Value
 }
 
 // NewOk returns an Ok[T] that wraps the given value
 func NewOk[T any](value T) Result[T] {
-	return &ok[T]{
-		ok: value,
+	return Ok[T]{
+		Value: value,
 	}
 }

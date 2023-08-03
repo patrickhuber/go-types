@@ -27,11 +27,11 @@ func TestTuple2(t *testing.T) {
 		expect2 := 1
 		tup := types.NewTuple2(expect1, expect2)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}	
 	})
 }
@@ -61,14 +61,14 @@ func TestTuple3(t *testing.T) {
 		expect3 := 2
 		tup := types.NewTuple3(expect1, expect2, expect3)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}	
 	})
 }
@@ -103,17 +103,17 @@ func TestTuple4(t *testing.T) {
 		expect4 := 3
 		tup := types.NewTuple4(expect1, expect2, expect3, expect4)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}	
 	})
 }
@@ -153,20 +153,20 @@ func TestTuple5(t *testing.T) {
 		expect5 := 4
 		tup := types.NewTuple5(expect1, expect2, expect3, expect4, expect5)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}	
 	})
 }
@@ -211,23 +211,23 @@ func TestTuple6(t *testing.T) {
 		expect6 := 5
 		tup := types.NewTuple6(expect1, expect2, expect3, expect4, expect5, expect6)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}	
 	})
 }
@@ -277,26 +277,26 @@ func TestTuple7(t *testing.T) {
 		expect7 := 6
 		tup := types.NewTuple7(expect1, expect2, expect3, expect4, expect5, expect6, expect7)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}
-		if tup.Value7() != expect7 {
-			t.Fatalf("expected %d to equal %d", tup.Value7(), expect7)
+		if tup.Value7 != expect7 {
+			t.Fatalf("expected %d to equal %d", tup.Value7, expect7)
 		}	
 	})
 }
@@ -351,29 +351,29 @@ func TestTuple8(t *testing.T) {
 		expect8 := 7
 		tup := types.NewTuple8(expect1, expect2, expect3, expect4, expect5, expect6, expect7, expect8)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}
-		if tup.Value7() != expect7 {
-			t.Fatalf("expected %d to equal %d", tup.Value7(), expect7)
+		if tup.Value7 != expect7 {
+			t.Fatalf("expected %d to equal %d", tup.Value7, expect7)
 		}
-		if tup.Value8() != expect8 {
-			t.Fatalf("expected %d to equal %d", tup.Value8(), expect8)
+		if tup.Value8 != expect8 {
+			t.Fatalf("expected %d to equal %d", tup.Value8, expect8)
 		}	
 	})
 }
@@ -433,32 +433,32 @@ func TestTuple9(t *testing.T) {
 		expect9 := 8
 		tup := types.NewTuple9(expect1, expect2, expect3, expect4, expect5, expect6, expect7, expect8, expect9)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}
-		if tup.Value7() != expect7 {
-			t.Fatalf("expected %d to equal %d", tup.Value7(), expect7)
+		if tup.Value7 != expect7 {
+			t.Fatalf("expected %d to equal %d", tup.Value7, expect7)
 		}
-		if tup.Value8() != expect8 {
-			t.Fatalf("expected %d to equal %d", tup.Value8(), expect8)
+		if tup.Value8 != expect8 {
+			t.Fatalf("expected %d to equal %d", tup.Value8, expect8)
 		}
-		if tup.Value9() != expect9 {
-			t.Fatalf("expected %d to equal %d", tup.Value9(), expect9)
+		if tup.Value9 != expect9 {
+			t.Fatalf("expected %d to equal %d", tup.Value9, expect9)
 		}	
 	})
 }
@@ -523,35 +523,35 @@ func TestTuple10(t *testing.T) {
 		expect10 := 9
 		tup := types.NewTuple10(expect1, expect2, expect3, expect4, expect5, expect6, expect7, expect8, expect9, expect10)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}
-		if tup.Value7() != expect7 {
-			t.Fatalf("expected %d to equal %d", tup.Value7(), expect7)
+		if tup.Value7 != expect7 {
+			t.Fatalf("expected %d to equal %d", tup.Value7, expect7)
 		}
-		if tup.Value8() != expect8 {
-			t.Fatalf("expected %d to equal %d", tup.Value8(), expect8)
+		if tup.Value8 != expect8 {
+			t.Fatalf("expected %d to equal %d", tup.Value8, expect8)
 		}
-		if tup.Value9() != expect9 {
-			t.Fatalf("expected %d to equal %d", tup.Value9(), expect9)
+		if tup.Value9 != expect9 {
+			t.Fatalf("expected %d to equal %d", tup.Value9, expect9)
 		}
-		if tup.Value10() != expect10 {
-			t.Fatalf("expected %d to equal %d", tup.Value10(), expect10)
+		if tup.Value10 != expect10 {
+			t.Fatalf("expected %d to equal %d", tup.Value10, expect10)
 		}	
 	})
 }
@@ -621,38 +621,38 @@ func TestTuple11(t *testing.T) {
 		expect11 := 10
 		tup := types.NewTuple11(expect1, expect2, expect3, expect4, expect5, expect6, expect7, expect8, expect9, expect10, expect11)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}
-		if tup.Value7() != expect7 {
-			t.Fatalf("expected %d to equal %d", tup.Value7(), expect7)
+		if tup.Value7 != expect7 {
+			t.Fatalf("expected %d to equal %d", tup.Value7, expect7)
 		}
-		if tup.Value8() != expect8 {
-			t.Fatalf("expected %d to equal %d", tup.Value8(), expect8)
+		if tup.Value8 != expect8 {
+			t.Fatalf("expected %d to equal %d", tup.Value8, expect8)
 		}
-		if tup.Value9() != expect9 {
-			t.Fatalf("expected %d to equal %d", tup.Value9(), expect9)
+		if tup.Value9 != expect9 {
+			t.Fatalf("expected %d to equal %d", tup.Value9, expect9)
 		}
-		if tup.Value10() != expect10 {
-			t.Fatalf("expected %d to equal %d", tup.Value10(), expect10)
+		if tup.Value10 != expect10 {
+			t.Fatalf("expected %d to equal %d", tup.Value10, expect10)
 		}
-		if tup.Value11() != expect11 {
-			t.Fatalf("expected %d to equal %d", tup.Value11(), expect11)
+		if tup.Value11 != expect11 {
+			t.Fatalf("expected %d to equal %d", tup.Value11, expect11)
 		}	
 	})
 }
@@ -727,41 +727,41 @@ func TestTuple12(t *testing.T) {
 		expect12 := 11
 		tup := types.NewTuple12(expect1, expect2, expect3, expect4, expect5, expect6, expect7, expect8, expect9, expect10, expect11, expect12)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}
-		if tup.Value7() != expect7 {
-			t.Fatalf("expected %d to equal %d", tup.Value7(), expect7)
+		if tup.Value7 != expect7 {
+			t.Fatalf("expected %d to equal %d", tup.Value7, expect7)
 		}
-		if tup.Value8() != expect8 {
-			t.Fatalf("expected %d to equal %d", tup.Value8(), expect8)
+		if tup.Value8 != expect8 {
+			t.Fatalf("expected %d to equal %d", tup.Value8, expect8)
 		}
-		if tup.Value9() != expect9 {
-			t.Fatalf("expected %d to equal %d", tup.Value9(), expect9)
+		if tup.Value9 != expect9 {
+			t.Fatalf("expected %d to equal %d", tup.Value9, expect9)
 		}
-		if tup.Value10() != expect10 {
-			t.Fatalf("expected %d to equal %d", tup.Value10(), expect10)
+		if tup.Value10 != expect10 {
+			t.Fatalf("expected %d to equal %d", tup.Value10, expect10)
 		}
-		if tup.Value11() != expect11 {
-			t.Fatalf("expected %d to equal %d", tup.Value11(), expect11)
+		if tup.Value11 != expect11 {
+			t.Fatalf("expected %d to equal %d", tup.Value11, expect11)
 		}
-		if tup.Value12() != expect12 {
-			t.Fatalf("expected %d to equal %d", tup.Value12(), expect12)
+		if tup.Value12 != expect12 {
+			t.Fatalf("expected %d to equal %d", tup.Value12, expect12)
 		}	
 	})
 }
@@ -841,44 +841,44 @@ func TestTuple13(t *testing.T) {
 		expect13 := 12
 		tup := types.NewTuple13(expect1, expect2, expect3, expect4, expect5, expect6, expect7, expect8, expect9, expect10, expect11, expect12, expect13)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}
-		if tup.Value7() != expect7 {
-			t.Fatalf("expected %d to equal %d", tup.Value7(), expect7)
+		if tup.Value7 != expect7 {
+			t.Fatalf("expected %d to equal %d", tup.Value7, expect7)
 		}
-		if tup.Value8() != expect8 {
-			t.Fatalf("expected %d to equal %d", tup.Value8(), expect8)
+		if tup.Value8 != expect8 {
+			t.Fatalf("expected %d to equal %d", tup.Value8, expect8)
 		}
-		if tup.Value9() != expect9 {
-			t.Fatalf("expected %d to equal %d", tup.Value9(), expect9)
+		if tup.Value9 != expect9 {
+			t.Fatalf("expected %d to equal %d", tup.Value9, expect9)
 		}
-		if tup.Value10() != expect10 {
-			t.Fatalf("expected %d to equal %d", tup.Value10(), expect10)
+		if tup.Value10 != expect10 {
+			t.Fatalf("expected %d to equal %d", tup.Value10, expect10)
 		}
-		if tup.Value11() != expect11 {
-			t.Fatalf("expected %d to equal %d", tup.Value11(), expect11)
+		if tup.Value11 != expect11 {
+			t.Fatalf("expected %d to equal %d", tup.Value11, expect11)
 		}
-		if tup.Value12() != expect12 {
-			t.Fatalf("expected %d to equal %d", tup.Value12(), expect12)
+		if tup.Value12 != expect12 {
+			t.Fatalf("expected %d to equal %d", tup.Value12, expect12)
 		}
-		if tup.Value13() != expect13 {
-			t.Fatalf("expected %d to equal %d", tup.Value13(), expect13)
+		if tup.Value13 != expect13 {
+			t.Fatalf("expected %d to equal %d", tup.Value13, expect13)
 		}	
 	})
 }
@@ -963,47 +963,47 @@ func TestTuple14(t *testing.T) {
 		expect14 := 13
 		tup := types.NewTuple14(expect1, expect2, expect3, expect4, expect5, expect6, expect7, expect8, expect9, expect10, expect11, expect12, expect13, expect14)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}
-		if tup.Value7() != expect7 {
-			t.Fatalf("expected %d to equal %d", tup.Value7(), expect7)
+		if tup.Value7 != expect7 {
+			t.Fatalf("expected %d to equal %d", tup.Value7, expect7)
 		}
-		if tup.Value8() != expect8 {
-			t.Fatalf("expected %d to equal %d", tup.Value8(), expect8)
+		if tup.Value8 != expect8 {
+			t.Fatalf("expected %d to equal %d", tup.Value8, expect8)
 		}
-		if tup.Value9() != expect9 {
-			t.Fatalf("expected %d to equal %d", tup.Value9(), expect9)
+		if tup.Value9 != expect9 {
+			t.Fatalf("expected %d to equal %d", tup.Value9, expect9)
 		}
-		if tup.Value10() != expect10 {
-			t.Fatalf("expected %d to equal %d", tup.Value10(), expect10)
+		if tup.Value10 != expect10 {
+			t.Fatalf("expected %d to equal %d", tup.Value10, expect10)
 		}
-		if tup.Value11() != expect11 {
-			t.Fatalf("expected %d to equal %d", tup.Value11(), expect11)
+		if tup.Value11 != expect11 {
+			t.Fatalf("expected %d to equal %d", tup.Value11, expect11)
 		}
-		if tup.Value12() != expect12 {
-			t.Fatalf("expected %d to equal %d", tup.Value12(), expect12)
+		if tup.Value12 != expect12 {
+			t.Fatalf("expected %d to equal %d", tup.Value12, expect12)
 		}
-		if tup.Value13() != expect13 {
-			t.Fatalf("expected %d to equal %d", tup.Value13(), expect13)
+		if tup.Value13 != expect13 {
+			t.Fatalf("expected %d to equal %d", tup.Value13, expect13)
 		}
-		if tup.Value14() != expect14 {
-			t.Fatalf("expected %d to equal %d", tup.Value14(), expect14)
+		if tup.Value14 != expect14 {
+			t.Fatalf("expected %d to equal %d", tup.Value14, expect14)
 		}	
 	})
 }
@@ -1093,50 +1093,50 @@ func TestTuple15(t *testing.T) {
 		expect15 := 14
 		tup := types.NewTuple15(expect1, expect2, expect3, expect4, expect5, expect6, expect7, expect8, expect9, expect10, expect11, expect12, expect13, expect14, expect15)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}
-		if tup.Value7() != expect7 {
-			t.Fatalf("expected %d to equal %d", tup.Value7(), expect7)
+		if tup.Value7 != expect7 {
+			t.Fatalf("expected %d to equal %d", tup.Value7, expect7)
 		}
-		if tup.Value8() != expect8 {
-			t.Fatalf("expected %d to equal %d", tup.Value8(), expect8)
+		if tup.Value8 != expect8 {
+			t.Fatalf("expected %d to equal %d", tup.Value8, expect8)
 		}
-		if tup.Value9() != expect9 {
-			t.Fatalf("expected %d to equal %d", tup.Value9(), expect9)
+		if tup.Value9 != expect9 {
+			t.Fatalf("expected %d to equal %d", tup.Value9, expect9)
 		}
-		if tup.Value10() != expect10 {
-			t.Fatalf("expected %d to equal %d", tup.Value10(), expect10)
+		if tup.Value10 != expect10 {
+			t.Fatalf("expected %d to equal %d", tup.Value10, expect10)
 		}
-		if tup.Value11() != expect11 {
-			t.Fatalf("expected %d to equal %d", tup.Value11(), expect11)
+		if tup.Value11 != expect11 {
+			t.Fatalf("expected %d to equal %d", tup.Value11, expect11)
 		}
-		if tup.Value12() != expect12 {
-			t.Fatalf("expected %d to equal %d", tup.Value12(), expect12)
+		if tup.Value12 != expect12 {
+			t.Fatalf("expected %d to equal %d", tup.Value12, expect12)
 		}
-		if tup.Value13() != expect13 {
-			t.Fatalf("expected %d to equal %d", tup.Value13(), expect13)
+		if tup.Value13 != expect13 {
+			t.Fatalf("expected %d to equal %d", tup.Value13, expect13)
 		}
-		if tup.Value14() != expect14 {
-			t.Fatalf("expected %d to equal %d", tup.Value14(), expect14)
+		if tup.Value14 != expect14 {
+			t.Fatalf("expected %d to equal %d", tup.Value14, expect14)
 		}
-		if tup.Value15() != expect15 {
-			t.Fatalf("expected %d to equal %d", tup.Value15(), expect15)
+		if tup.Value15 != expect15 {
+			t.Fatalf("expected %d to equal %d", tup.Value15, expect15)
 		}	
 	})
 }
@@ -1231,53 +1231,53 @@ func TestTuple16(t *testing.T) {
 		expect16 := 15
 		tup := types.NewTuple16(expect1, expect2, expect3, expect4, expect5, expect6, expect7, expect8, expect9, expect10, expect11, expect12, expect13, expect14, expect15, expect16)
 		
-		if tup.Value1() != expect1 {
-			t.Fatalf("expected %d to equal %d", tup.Value1(), expect1)
+		if tup.Value1 != expect1 {
+			t.Fatalf("expected %d to equal %d", tup.Value1, expect1)
 		}
-		if tup.Value2() != expect2 {
-			t.Fatalf("expected %d to equal %d", tup.Value2(), expect2)
+		if tup.Value2 != expect2 {
+			t.Fatalf("expected %d to equal %d", tup.Value2, expect2)
 		}
-		if tup.Value3() != expect3 {
-			t.Fatalf("expected %d to equal %d", tup.Value3(), expect3)
+		if tup.Value3 != expect3 {
+			t.Fatalf("expected %d to equal %d", tup.Value3, expect3)
 		}
-		if tup.Value4() != expect4 {
-			t.Fatalf("expected %d to equal %d", tup.Value4(), expect4)
+		if tup.Value4 != expect4 {
+			t.Fatalf("expected %d to equal %d", tup.Value4, expect4)
 		}
-		if tup.Value5() != expect5 {
-			t.Fatalf("expected %d to equal %d", tup.Value5(), expect5)
+		if tup.Value5 != expect5 {
+			t.Fatalf("expected %d to equal %d", tup.Value5, expect5)
 		}
-		if tup.Value6() != expect6 {
-			t.Fatalf("expected %d to equal %d", tup.Value6(), expect6)
+		if tup.Value6 != expect6 {
+			t.Fatalf("expected %d to equal %d", tup.Value6, expect6)
 		}
-		if tup.Value7() != expect7 {
-			t.Fatalf("expected %d to equal %d", tup.Value7(), expect7)
+		if tup.Value7 != expect7 {
+			t.Fatalf("expected %d to equal %d", tup.Value7, expect7)
 		}
-		if tup.Value8() != expect8 {
-			t.Fatalf("expected %d to equal %d", tup.Value8(), expect8)
+		if tup.Value8 != expect8 {
+			t.Fatalf("expected %d to equal %d", tup.Value8, expect8)
 		}
-		if tup.Value9() != expect9 {
-			t.Fatalf("expected %d to equal %d", tup.Value9(), expect9)
+		if tup.Value9 != expect9 {
+			t.Fatalf("expected %d to equal %d", tup.Value9, expect9)
 		}
-		if tup.Value10() != expect10 {
-			t.Fatalf("expected %d to equal %d", tup.Value10(), expect10)
+		if tup.Value10 != expect10 {
+			t.Fatalf("expected %d to equal %d", tup.Value10, expect10)
 		}
-		if tup.Value11() != expect11 {
-			t.Fatalf("expected %d to equal %d", tup.Value11(), expect11)
+		if tup.Value11 != expect11 {
+			t.Fatalf("expected %d to equal %d", tup.Value11, expect11)
 		}
-		if tup.Value12() != expect12 {
-			t.Fatalf("expected %d to equal %d", tup.Value12(), expect12)
+		if tup.Value12 != expect12 {
+			t.Fatalf("expected %d to equal %d", tup.Value12, expect12)
 		}
-		if tup.Value13() != expect13 {
-			t.Fatalf("expected %d to equal %d", tup.Value13(), expect13)
+		if tup.Value13 != expect13 {
+			t.Fatalf("expected %d to equal %d", tup.Value13, expect13)
 		}
-		if tup.Value14() != expect14 {
-			t.Fatalf("expected %d to equal %d", tup.Value14(), expect14)
+		if tup.Value14 != expect14 {
+			t.Fatalf("expected %d to equal %d", tup.Value14, expect14)
 		}
-		if tup.Value15() != expect15 {
-			t.Fatalf("expected %d to equal %d", tup.Value15(), expect15)
+		if tup.Value15 != expect15 {
+			t.Fatalf("expected %d to equal %d", tup.Value15, expect15)
 		}
-		if tup.Value16() != expect16 {
-			t.Fatalf("expected %d to equal %d", tup.Value16(), expect16)
+		if tup.Value16 != expect16 {
+			t.Fatalf("expected %d to equal %d", tup.Value16, expect16)
 		}	
 	})
 }

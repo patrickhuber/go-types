@@ -16,7 +16,7 @@ func TestAssert(t *testing.T) {
 	res := withAssert(t.TempDir())
 	switch r := res.(type) {
 	case types.Error[any]:
-		t.Fatal(r.Error())
+		t.Fatal(r.Value)
 	case types.Ok[any]:
 	}
 }

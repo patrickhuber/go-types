@@ -15,7 +15,7 @@ func Cast[TSource, TTarget any](source types.Option[TSource]) types.Result[types
 		return result.Ok(None[TTarget]())
 
 	case types.Some[TSource]:
-		value := any(t.Value())
+		value := any(t.Value)
 		target, ok := value.(TTarget)
 		if !ok {
 			return result.Errorf[types.Option[TTarget]]("options.cast : unable to match type target type %T", value)

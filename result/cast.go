@@ -7,7 +7,7 @@ import (
 func Cast[TSource, TTarget any](source types.Result[TSource]) types.Result[TTarget] {
 	switch t := source.(type) {
 	case types.Ok[TSource]:
-		value := any(t.Ok())
+		value := any(t.Value)
 		target, ok := value.(TTarget)
 		if !ok {
 			var t TTarget
@@ -15,7 +15,7 @@ func Cast[TSource, TTarget any](source types.Result[TSource]) types.Result[TTarg
 		}
 		return Ok(target)
 	case types.Error[TSource]:
-		return Error[TTarget](t.Error())
+		return Error[TTarget](t.Value)
 	default:
 		return Errorf[TTarget]("results.cast : unable to match source type %T", source)
 	}

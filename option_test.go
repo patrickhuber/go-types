@@ -48,8 +48,8 @@ func TestSome(t *testing.T) {
 	t.Run("match", func(t *testing.T) {
 		switch opt := option.Some[int](123).(type) {
 		case types.Some[int]:
-			if opt.Value() != 123 {
-				t.Fatalf("expected option value 123 found %d", opt.Value())
+			if opt.Value != 123 {
+				t.Fatalf("expected option value 123 found %d", opt.Value)
 			}
 		case types.None[int]:
 			t.Fatalf("expected types.None but found types.Some")
