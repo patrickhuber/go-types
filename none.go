@@ -30,6 +30,11 @@ func (n None[T]) Unwrap() T {
 	return zero
 }
 
+// UnwrapOr implements Option[T].UnwrapOr
+func (n None[T]) UnwrapOr(other T) T {
+	return other
+}
+
 // NewNone returns a None[T]
 func NewNone[T any]() Option[T] {
 	return None[T]{}

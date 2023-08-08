@@ -32,6 +32,14 @@ func TestNone(t *testing.T) {
 			t.Fatalf("expected IsNone to be true")
 		}
 	})
+
+	t.Run("unwrap_or", func(t *testing.T) {
+		op := option.None[int]()
+		value := op.UnwrapOr(10)
+		if value != 10 {
+			t.Fatalf("expected 10 but found %d", value)
+		}
+	})
 }
 
 func TestSome(t *testing.T) {
@@ -66,4 +74,11 @@ func TestSome(t *testing.T) {
 		}
 	})
 
+	t.Run("unwrap_or", func(t *testing.T) {
+		op := option.Some(20)
+		value := op.UnwrapOr(10)
+		if value != 20 {
+			t.Fatalf("expected 20 but found %d", value)
+		}
+	})
 }

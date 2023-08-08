@@ -25,6 +25,11 @@ func (s Some[T]) Unwrap() T {
 	return s.Value
 }
 
+// UnwrapOr implements Option[T].UnwrapOr
+func (s Some[T]) UnwrapOr(other T) T {
+	return s.Value
+}
+
 // NewSome returns a Some[T] that wraps the value T
 func NewSome[T any](value T) Option[T] {
 	return Some[T]{

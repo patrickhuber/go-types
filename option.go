@@ -19,4 +19,7 @@ type Option[T any] interface {
 	// Unwrap unwraps the Option to its underlying value if the type is Some and
 	// panics if the type is None
 	Unwrap() T
+
+	// UnwrapOr unwraps the Option if it is Some[T]. If the option is None[T] the supplied value 'other' is returned.
+	UnwrapOr(other T) T
 }
