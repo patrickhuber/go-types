@@ -6,7 +6,7 @@ type Tuple2[T1, T2 any] struct{
 	Value2 T2
 }
 
-func (t *Tuple2[T1, T2]) Deconstruct() (T1, T2){
+func (t Tuple2[T1, T2]) Deconstruct() (T1, T2){
 	return t.Value1, t.Value2
 }
 
@@ -23,7 +23,7 @@ type Tuple3[T1, T2, T3 any] struct{
 	Value3 T3
 }
 
-func (t *Tuple3[T1, T2, T3]) Deconstruct() (T1, T2, T3){
+func (t Tuple3[T1, T2, T3]) Deconstruct() (T1, T2, T3){
 	return t.Value1, t.Value2, t.Value3
 }
 
@@ -42,7 +42,7 @@ type Tuple4[T1, T2, T3, T4 any] struct{
 	Value4 T4
 }
 
-func (t *Tuple4[T1, T2, T3, T4]) Deconstruct() (T1, T2, T3, T4){
+func (t Tuple4[T1, T2, T3, T4]) Deconstruct() (T1, T2, T3, T4){
 	return t.Value1, t.Value2, t.Value3, t.Value4
 }
 
@@ -63,7 +63,7 @@ type Tuple5[T1, T2, T3, T4, T5 any] struct{
 	Value5 T5
 }
 
-func (t *Tuple5[T1, T2, T3, T4, T5]) Deconstruct() (T1, T2, T3, T4, T5){
+func (t Tuple5[T1, T2, T3, T4, T5]) Deconstruct() (T1, T2, T3, T4, T5){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5
 }
 
@@ -86,7 +86,7 @@ type Tuple6[T1, T2, T3, T4, T5, T6 any] struct{
 	Value6 T6
 }
 
-func (t *Tuple6[T1, T2, T3, T4, T5, T6]) Deconstruct() (T1, T2, T3, T4, T5, T6){
+func (t Tuple6[T1, T2, T3, T4, T5, T6]) Deconstruct() (T1, T2, T3, T4, T5, T6){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6
 }
 
@@ -111,7 +111,7 @@ type Tuple7[T1, T2, T3, T4, T5, T6, T7 any] struct{
 	Value7 T7
 }
 
-func (t *Tuple7[T1, T2, T3, T4, T5, T6, T7]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7){
+func (t Tuple7[T1, T2, T3, T4, T5, T6, T7]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6, t.Value7
 }
 
@@ -138,7 +138,7 @@ type Tuple8[T1, T2, T3, T4, T5, T6, T7, T8 any] struct{
 	Value8 T8
 }
 
-func (t *Tuple8[T1, T2, T3, T4, T5, T6, T7, T8]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8){
+func (t Tuple8[T1, T2, T3, T4, T5, T6, T7, T8]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6, t.Value7, t.Value8
 }
 
@@ -167,7 +167,7 @@ type Tuple9[T1, T2, T3, T4, T5, T6, T7, T8, T9 any] struct{
 	Value9 T9
 }
 
-func (t *Tuple9[T1, T2, T3, T4, T5, T6, T7, T8, T9]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9){
+func (t Tuple9[T1, T2, T3, T4, T5, T6, T7, T8, T9]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6, t.Value7, t.Value8, t.Value9
 }
 
@@ -198,7 +198,7 @@ type Tuple10[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10 any] struct{
 	Value10 T10
 }
 
-func (t *Tuple10[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10){
+func (t Tuple10[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6, t.Value7, t.Value8, t.Value9, t.Value10
 }
 
@@ -231,7 +231,7 @@ type Tuple11[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11 any] struct{
 	Value11 T11
 }
 
-func (t *Tuple11[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11){
+func (t Tuple11[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6, t.Value7, t.Value8, t.Value9, t.Value10, t.Value11
 }
 
@@ -266,7 +266,7 @@ type Tuple12[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12 any] struct{
 	Value12 T12
 }
 
-func (t *Tuple12[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12){
+func (t Tuple12[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6, t.Value7, t.Value8, t.Value9, t.Value10, t.Value11, t.Value12
 }
 
@@ -303,7 +303,7 @@ type Tuple13[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13 any] struct{
 	Value13 T13
 }
 
-func (t *Tuple13[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13){
+func (t Tuple13[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6, t.Value7, t.Value8, t.Value9, t.Value10, t.Value11, t.Value12, t.Value13
 }
 
@@ -342,7 +342,7 @@ type Tuple14[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14 any] st
 	Value14 T14
 }
 
-func (t *Tuple14[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14){
+func (t Tuple14[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6, t.Value7, t.Value8, t.Value9, t.Value10, t.Value11, t.Value12, t.Value13, t.Value14
 }
 
@@ -383,7 +383,7 @@ type Tuple15[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15 an
 	Value15 T15
 }
 
-func (t *Tuple15[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15){
+func (t Tuple15[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6, t.Value7, t.Value8, t.Value9, t.Value10, t.Value11, t.Value12, t.Value13, t.Value14, t.Value15
 }
 
@@ -426,7 +426,7 @@ type Tuple16[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T
 	Value16 T16
 }
 
-func (t *Tuple16[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16){
+func (t Tuple16[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16]) Deconstruct() (T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16){
 	return t.Value1, t.Value2, t.Value3, t.Value4, t.Value5, t.Value6, t.Value7, t.Value8, t.Value9, t.Value10, t.Value11, t.Value12, t.Value13, t.Value14, t.Value15, t.Value16
 }
 

@@ -20,7 +20,7 @@ type Tuple{{$value}}[{{typeDef $value}} any] struct{
 {{end -}}
 }
 
-func (t *Tuple{{$value}}[{{typeDef $value}}]) Deconstruct() ({{typeDef $value}}){
+func (t Tuple{{$value}}[{{typeDef $value}}]) Deconstruct() ({{typeDef $value}}){
 	return {{range $index, $i := loop 1 $value}}{{if gt $index 0}}, {{end}}t.Value{{$i}}{{end}}
 }
 
