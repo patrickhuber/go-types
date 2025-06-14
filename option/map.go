@@ -15,7 +15,7 @@ func Map[T, U any](op types.Option[T], transform func(t T) U) types.Option[U] {
 // MapOr returns the default value if none.
 // or applies the function to the value if some
 func MapOr[T, U any](op types.Option[T], transform func(t T) U, def U) U {
-	m := Map[T, U](op, transform)
+	m := Map(op, transform)
 	if some, ok := m.(types.Some[U]); ok {
 		return some.Value
 	}
@@ -25,7 +25,7 @@ func MapOr[T, U any](op types.Option[T], transform func(t T) U, def U) U {
 // MapOrElse evaluates the default function if none
 // or applies the function to the value if some
 func MapOrElse[T, U any](op types.Option[T], transform func(t T) U, def func() U) U {
-	m := Map[T, U](op, transform)
+	m := Map(op, transform)
 	if some, ok := m.(types.Some[U]); ok {
 		return some.Value
 	}
