@@ -27,6 +27,11 @@ func (o Ok[T]) Unwrap() T {
 	return o.Value
 }
 
+// MapError implements Result[T].MapError
+func (o Ok[T]) MapError(errMap func(error) error) Result[T] {
+	return o
+}
+
 // NewOk returns an Ok[T] that wraps the given value
 func NewOk[T any](value T) Result[T] {
 	return Ok[T]{

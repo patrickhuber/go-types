@@ -22,6 +22,10 @@ type Result[T any] interface {
 	// If the result is an Error, Unwrap will panic.
 	// Unwrap is meant to be used with handle.Error(*types.Result)
 	Unwrap() T
+
+	// MapError maps the error to another error
+	// The function is meant to reduce if err != nil boilerplate and allows the user to add additioanl error information
+	MapError(func(error) error) Result[T]
 }
 
 // NewResult returns a Error if err is not nil and Ok if err is nil.

@@ -45,6 +45,15 @@ func TestOk(t *testing.T) {
 			t.Fatalf("expected IsErr to be false")
 		}
 	})
+	t.Run("map_err", func(t *testing.T) {
+		res := result.Ok(123)
+		res = res.MapError(func(err error) error { return err })
+		switch res.(type) {
+		case types.Ok[int]:
+		default:
+			t.Fatalf("expected MapErr to return Ok result")
+		}
+	})
 }
 
 func TestError(t *testing.T) {
@@ -98,6 +107,21 @@ func TestError(t *testing.T) {
 		}
 		if !errors.Is(err, myerr) {
 			t.Fatalf("expected err to be myerr")
+		}
+	})
+	t.Run("map_err", func(t *testing.T) {
+		res := result.Error[int](fmt.Errorf("some error"))
+		res = res.MapError(func(err error) error {
+			return fmt.Errorf("wrap %w", err)
+		})
+		switch v := res.(type) {
+		case types.Error[int]:
+			expected := "wrap some error"
+			if v.Value.Error() != expected {
+				t.Fatalf("expected error to be '%s' but found '%s'", expected, v.Value.Error())
+			}
+		default:
+			t.Fatalf("expected MapErr to return Ok result")
 		}
 	})
 }

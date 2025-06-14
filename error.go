@@ -45,6 +45,11 @@ func (e Error[T]) Unwrap() T {
 	return zero
 }
 
+// MapError implements Result[T].MapError
+func (o Error[T]) MapError(errMap func(error) error) Result[T] {
+	return NewError[T](errMap(o.Value))
+}
+
 // NewError returns an error over the supplied error
 func NewError[T any](value error) Result[T] {
 	return Error[T]{
